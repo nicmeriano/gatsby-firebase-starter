@@ -1,10 +1,11 @@
 import React from "react"
 import Layout from "../components/layout"
+import SignUp from "../components/signup"
 
-export default function IndexPage() {
+export default function LoginPage() {
   return (
     <Layout>
-      <h1>Landing Page</h1>
+      <SignUp />
     </Layout>
   )
 }

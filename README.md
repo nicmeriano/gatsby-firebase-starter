@@ -5,12 +5,31 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby's default starter
+  Gatsby Firebase Starter (Auth & Database)
 </h1>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React. In addition to the main configuration files, this starter provides a ```useFirebase``` hook through which you can implement all functionality related to Firebase Authentication as well as Firebase Database/Firestore.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+## Details
+
+### Firebase Auth/Database Configuration
+
+If you haven't done so already, visit the [Google Firebase Console](https://firebase.google.com/) and create a new project in order to get the config details. Store these as environment variables in a `.env.development` file located at the root of your project and access them as shown in `src/hooks/useFirebase.js`.
+
+_Note: Every login method needs specific permissions set within your project settings in the Firebase Console. For more information and instructions visit [Get Started: Firebase Authentication.](https://firebase.google.com/docs/auth/web/start)_
+
+### privateRoute Component
+
+In the pages folder, there is a sample `private.js` page that demonstrates how to use the `privateRoute` component to make any page accessible only to authenticated users. `privateRoute` can allso be nested within a `Router` as done in `src/pages/app` in which case a `location` property does not have to be passed down to it. 
+
+### app Page
+
+If desired, routes can be dynamically set by wrapping your component within a `Router` and created by specifying what routes to create within `gatsby-node.js`.
+
+#
+
+
+_Looking for more Gatsby starters? Check them out this collection of official and community-created starters [here](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
 ## 🚀 Quick start
 
@@ -20,25 +39,25 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
     ```shell
     # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
+    gatsby new my-gatsby-firebase https://github.com/nicmeriano/gatsby-firebase-starter
     ```
 
-1.  **Start developing.**
+2.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
     ```shell
-    cd my-default-starter/
+    cd my-gatsby-firebase/
     gatsby develop
     ```
 
-1.  **Open the source code and start editing!**
+3.  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    Open the `my-gatsby-firebase` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
 ## 🧐 What's inside?
 
@@ -48,7 +67,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── node_modules
     ├── src
     ├── .gitignore
-    ├── .prettierrc
+    ├── .prettierrc 
     ├── gatsby-browser.js
     ├── gatsby-config.js
     ├── gatsby-node.js
@@ -66,7 +85,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser. This is where the `wrapRootElement` browser API is used to wrap the page within the Firebase Provider.
 
 6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
 
@@ -90,8 +109,6 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 - **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
-## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
